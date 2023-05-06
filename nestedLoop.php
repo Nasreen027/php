@@ -7,26 +7,24 @@
     <title>Nested Loop Task</title>
 </head>
 <body>
-<table>
-    <thead>
-<?php
-$col = 2;
-$row = 3;
-for($i= 1; $i <= $col; $i++){
-    ?>
-    <tr>
-        <th></th>
-    </tr>
-    </thead>
-    <tbody> 
-    <?php
-    for($j= 1 ; $j <= $row; $j++){
+
+    <table border="1px">
+      <?php
+        $col = 2;
+       $row = 10;
+    for($i= 1; $i <= $row; $i++){
+      ?>
+      <tr>
+     <tbody> 
+     <?php
+    for($j= 1 ; $j <= $col; $j++){
         ?>
-        <tr>
-            <td></td>
-        </tr>
-        <?php
+          <td></td>
+      <?php
     }
+    ?>
+    </tr>
+    <?php
 }
 ?>
  </tbody>
