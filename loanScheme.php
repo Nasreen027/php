@@ -46,6 +46,22 @@
  
 
 </form>
+<?php
+if(isset($_POST['loan'])){
+  $name = $_POST('name');
+  $age = $_POST('age');
+  $salary = $_POST('salary');
+  $l_amount = $_POST('l_amount');
+  $a_payment = $_POST('a_payment');
+  $year = $_POST('year');
+  // $deduct = 
+
+  if($age>25 && $salary>30000){
+    echo "you are eligible for this scheme " . "monthly installments is " . $deduct;
+  }
+
+}
+?>
 
 </body>
 </html>
