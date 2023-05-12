@@ -55,7 +55,7 @@ if(isset($_POST['loan'])){
   $l_amount = $_POST['l_amount'];
   $a_payment = $_POST['a_payment'];
   $year = $_POST['year'];
-  $deduct = $l_amount-$a_payment/($year*12);
+  $deduct = ($l_amount-$a_payment)/($year*12);
 
   if($age > 25 && $salary > 30000 && $l_amount){
     echo "you are eligible for this scheme and " . "monthly installments is ". $deduct;
