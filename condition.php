@@ -33,7 +33,25 @@
 ?>
 <h1 style= 'color:<?php echo $red ?>'>Name not matched</h1>
 <?php
+    };
+    ?>
+    <?php
+    $name = 'sana';
+    echo match($name){
+        'ali' => 'user not found',
+        'sana' => 'welcome '.$name,
     }
+    
+    ?>
+    <?php
+    echo match(8.0){
+        '8.0' => "oh no!",
+        8.0 => "this is what i expected",
+    };
+    ?>
+    <?php
+    $country=$session?->user?->getAddress()?->$country;
+    
     ?>
 </body>
 </html>
