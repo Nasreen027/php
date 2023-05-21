@@ -13,10 +13,18 @@
         <input type="submit" name="sub" id="">
     </form>
     <?php
+    //it will return extension of the file
     if(isset($_POST['sub'])){
         $extension = $_POST['ext'];
         $exploding = explode(".",$extension);
         // $file_ext = $exploding[count($exploding)-1];
+        $file_ext = $exploding[array_key_last($exploding)];
+        echo $file_ext;
+    }
+    // it will return last name
+    if(isset($_POST['sub'])){
+        $extension = $_POST['ext'];
+        $exploding = explode(' ', $extension);
         $file_ext = $exploding[array_key_last($exploding)];
         echo $file_ext;
     }
