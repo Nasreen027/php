@@ -39,7 +39,8 @@ if(isset($_POST['updateBtn'])){
     $name = $_POST['getName'];
     $price = $_POST['getPrice'];
     $quantity = $_POST['getQuantity'];
-}
+    // $query = $pdo->
+};
 ?>
     
 </body>

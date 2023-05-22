@@ -38,8 +38,8 @@
     <?php
     $name = 'sana';
     echo match($name){
-        'ali' => 'user not found',
-        'sana' => 'welcome '.$name,
+        // 'ali' => 'user not found',
+        // 'sana' => 'welcome '.$name,
     }
     
     ?>

@@ -20,14 +20,7 @@
         // $file_ext = $exploding[count($exploding)-1];
         $file_ext = $exploding[array_key_last($exploding)];
         echo $file_ext;
-    }
-    // it will return last name
-    if(isset($_POST['sub'])){
-        $extension2 = $_POST['ext'];
-        $exploding2 = explode(' ', $extension2);
-        $file_ext2 = $exploding2[array_key_last($exploding2)];
-        echo $file_ext2;
-    }
+    };
     ?>
 </body>
 </html>
