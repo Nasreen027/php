@@ -13,7 +13,7 @@ include('connection.php')
 
 <div class="container">
 
-</div>
+
 
 <?php
 
@@ -29,13 +29,18 @@ foreach($result as $faculty){
         <td><?php echo $faculty['name'] ?></td>
         <td><?php echo $faculty['price'] ?></td>
         <td><?php echo $faculty['quantity'] ?></td>
+         <td><a type='submit' class="btn btn-primary"
+          href="update.php ?id=<?php echo $faculty['id']?>">Update</a></td>
     </tr>
-</table>
+
 <?php
 
 } 
 
 ?>
+     <tr><button><a href="insert.php">Insert</a></button></tr>
+    </table>
+    </div>
     
 </body>
 </html>
