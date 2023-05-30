@@ -31,6 +31,8 @@ foreach($result as $faculty){
         <td><?php echo $faculty['quantity'] ?></td>
          <td><a type='submit' class="btn btn-primary"
           href="update.php ?id=<?php echo $faculty['id']?>">Update</a></td>
+         <td><a type='submit' class="btn btn-danger"
+          href="connectionData.php ?id=<?php echo $faculty['id']?>">Delete</a></td>
     </tr>
 
 <?php
@@ -38,8 +40,9 @@ foreach($result as $faculty){
 } 
 
 ?>
-     <tr><button><a href="insert.php">Insert</a></button></tr>
+     
     </table>
+   <tr><a class='text-light btn btn-primary' href="insert.php">Insert</a></tr>
     </div>
     
 </body>
