@@ -19,7 +19,13 @@
         $exploding = explode(".",$extension);
         // $file_ext = $exploding[count($exploding)-1];
         $file_ext = $exploding[array_key_last($exploding)];
-        echo $file_ext;
+        //echo $file_ext;
+         if($file_ext == 'jpeg' || $file_ext=='jpg' || $file_ext=='png' || $file_ext=='svg'){
+            echo "Valid extension";
+        }
+        else{
+            echo "Invalid extension";
+        };
     };
     ?>
 </body>
