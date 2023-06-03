@@ -1,5 +1,5 @@
 <?php
-include('connection.php');
+include("query.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,39 +7,43 @@ include('connection.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-5/css/bootstrap.min.css">
+    <title>Insert</title>
 </head>
 <body>
-    <div class="container">
-    <form action="" method='post'>
-        <div class="form-group">
-            <label for="">Name:</label>
-            <input type="text" class="form-control" name='insertName'>
-        </div>
-        <div class="form-group">
-            <label for="">Price:</label>
-            <input type="text" class="form-control" name='insertPrice'>
-        </div>
-        <div class="form-group">
-            <label for="">Quantity:</label>
-            <input type="text" class="form-control" name='insertQuantity'>
-        </div>
-        <button name='insertBtn' type='submit' class='btn btn-primary'>Insert</button>
-    </form>
-    </div>
 
-    <?php
-    if(isset($_POST['insertBtn'])){
-        $name = $_POST['insertName'];
-        $price = $_POST['insertPrice'];
-        $quantity = $_POST['insertQuantity'];
-        $query = $pdo->prepare("insert into products(name,price,quantity) values(:name, :price, :quantity)");
-        $query->bindParam('name', $name);
-        $query->bindParam('price', $price);
-        $query->bindParam('quantity', $quantity);
-        $query->execute();
-        echo 'data successfully inserted';
-    }
-    ?>
+<div class="container">
+    <form action="" method='post' enctype='multipart/form-data'>
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" name='name' class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Price</label>
+            <input type="text" name='price' class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Image</label>
+            <input type="file" name='image' class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="">Category</label>
+           <select name="c_id" id="">
+            <option value="" class='form-control'>Select</option>
+            <?php
+            $query = $pdo->query('select * from category');
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            foreach($result as $category){
+                ?>
+                <option value="<?php echo $category['id'] ?>"><?php echo $category['id'] ?></option>
+                <?php
+            }
+            ?>
+           </select>
+        </div>
+        <button type='submit' name='addProduct'>Add</button>
+    </form>
+</div>
+    
 </body>
 </html>
