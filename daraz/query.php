@@ -3,6 +3,26 @@
 session_start();
 include("connection.php");
 
+if(isset($_POST['loginBtn'])){
+    $name = $_POST['name'];
+    $pass = $_POST['password'];
+    $query = $pdo->prepare("SELECT * FROM users WHERE name = :name && password = :password");
+    $query->bindParam(":name", $name);
+    $query->bindParam(":password", $pass);
+    $query->execute();
+    $result = $query->fetch(PDO::FETCH_ASSOC); //fetch method returns single row
+    if($result){
+        $_SESSION['id'] = $result['id'];
+        echo "<script>alert('Valid Data')</script>";
+        header("Location:cards.php");
+
+    }
+    else{
+        echo "<script>alert('Valid Data')</script>";
+    }
+}
+
+//products
 if(isset($_POST['addProduct'])){
     $prodName = $_POST['name'];
     $prodPrice = $_POST['price'];
@@ -41,23 +61,23 @@ if(isset($_POST['addProduct'])){
 
 ?>
 <?php
-if(isset($_POST['loginBtn'])){
-    $userName = $_POST['name'];
-    $pass = $_POST['password'];
+// if(isset($_POST['loginBtn'])){
+//     $userName = $_POST['name'];
+//     $pass = $_POST['password'];
 
-    $_SESSION['std_name'] = $userName;
-    $_SESSION['std_pass'] =  $pass ;
+//     $_SESSION['std_name'] = $userName;
+//     $_SESSION['std_pass'] =  $pass ;
 
-    $query = $pdo->query('select * from users where name = :name AND password = :password');
-    $data = $query->fetchAll(PDO::FETCH_ASSOC); 
-    if($data){
-        $_SESSION['name'] = $data['name'];
-        $_SESSION['password'] = $data['password'];
-        echo "successfully login";
-    }
-    else{
-        echo "user not found";
-    }
+//     $query = $pdo->query('select * from users where name = :name AND password = :password');
+//     $data = $query->fetchAll(PDO::FETCH_ASSOC); 
+//     if($data){
+//         $_SESSION['name'] = $data['name'];
+//         $_SESSION['password'] = $data['password'];
+//         echo "successfully login";
+//     }
+//     else{
+//         echo "user not found";
+//     }
 
-}
+// }
 ?>
