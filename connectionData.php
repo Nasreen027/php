@@ -8,6 +8,7 @@ include('connection.php')
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -23,7 +24,7 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
 foreach($result as $faculty){
 ?>
-<table>
+<table class='table'>
     <tr>
         <td><?php echo $faculty['id'] ?></td>
         <td><?php echo $faculty['name'] ?></td>
